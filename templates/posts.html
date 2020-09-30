@@ -1,0 +1,24 @@
+{% extends 'base.html'%}
+
+{%block title%}
+Posts   
+{%endblock%}
+
+{%block body%}
+<div class="container">
+    <h1>All posts</h1>
+
+    {% if articles|length > 0 %}
+    {% for i in articles%}
+    <div class="alert alert-info">
+        <h2>{{i.title}}</h2>
+        <p>{{i.intro}}</p>
+        <p><b>Date: {{i.date.date()}}</b></p>
+        <a href="/posts/{{ i.id }}" class="btn btn-warning">Detail</a>
+    </div>
+    {% endfor %}
+    {% else %}
+    <p>There are no articles on the page</p>
+    {% endif %}
+</div>
+{%endblock%}
